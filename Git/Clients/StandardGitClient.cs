@@ -36,8 +36,13 @@ namespace Inedo.BuildMasterExtensions.Git.Clients
              *  git clean -dfq               | Remove all non-Git versioned files and directories from the repository directory
              */
 
+            if (string.IsNullOrEmpty(tag))
+            {
+                tag = "FETCH_HEAD";
+            }
+
             this.ExecuteGitCommand(repo, "fetch", repo.RemoteRepositoryUrl, branch, "--quiet");
-            this.ExecuteGitCommand(repo, "reset --hard FETCH_HEAD --quiet");
+            this.ExecuteGitCommand(repo, string.Format("reset --hard {0} --quiet", tag));
             this.ExecuteGitCommand(repo, "clean -dfq");
         }
 
