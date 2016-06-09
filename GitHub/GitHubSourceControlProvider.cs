@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using Inedo.BuildMaster.Extensibility.Agents;
+using Inedo.Agents;
 using Inedo.BuildMaster.Extensibility.Providers;
 using Inedo.BuildMaster.Extensibility.Providers.SourceControl;
 using Inedo.BuildMaster.Files;
@@ -153,7 +153,7 @@ namespace Inedo.BuildMasterExtensions.GitHub
         {
             // This is not an ideal way to do this, but the idea here is to show an error if this is not used on a Windows client
             // Currently, only the Windows agent is an IRemoteCommandExecuter, so this will work
-            if (!this.UseStandardGitClient && !(this.Agent is IRemoteCommandExecuter))
+            if (!this.UseStandardGitClient && !(this.Agent is IRemoteMethodExecuter))
                 throw new NotAvailableException("The integrated Git client cannot be used on Linux. Enable the Use Standard Git Client option of the GitHub Provider.");
 
             var results = this.ExecuteCommandLine(fileName, arguments, workingDirectory);

@@ -1,5 +1,4 @@
-﻿using Inedo.BuildMaster.Extensibility.Agents;
-using Inedo.BuildMaster.Extensibility.Providers;
+﻿using Inedo.Agents;
 using Inedo.BuildMaster.Extensibility.Providers.SourceControl;
 using Inedo.BuildMasterExtensions.Git.Clients;
 

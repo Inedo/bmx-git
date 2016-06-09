@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Inedo.Agents;
 using Inedo.BuildMaster.Extensibility.Agents;
 using Inedo.BuildMaster.Extensibility.Providers;
 using Inedo.BuildMaster.Extensibility.Providers.SourceControl;
@@ -233,7 +234,7 @@ namespace Inedo.BuildMasterExtensions.Git
 
         public void DeleteWorkspace(SourceControlContext context)
         {
-            this.Agent.ClearFolder(context.WorkspaceDiskPath);
+            this.Agent.ClearDirectory(context.WorkspaceDiskPath);
         }
 
         public IEnumerable<string> EnumerateLabels(SourceControlContext context)
@@ -269,7 +270,7 @@ namespace Inedo.BuildMasterExtensions.Git
                 return;
 
             agent.CreateDirectory(targetFolder);
-            char separator = agent.GetDirectorySeparator();
+            char separator = agent.DirectorySeparator;
             var entry = agent.GetDirectoryEntry(new GetDirectoryEntryCommand
             {
                 Path = sourceFolder,

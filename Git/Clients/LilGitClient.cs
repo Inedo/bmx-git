@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
+using Inedo.Agents;
 using Inedo.BuildMaster.Extensibility.Providers.SourceControl;
 
 namespace Inedo.BuildMasterExtensions.Git.Clients
