@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Inedo.Agents;
 using Inedo.BuildMaster.Extensibility.Providers.SourceControl;
+using Inedo.IO;
 
 namespace Inedo.BuildMasterExtensions.Git.Clients
 {
@@ -13,13 +13,7 @@ namespace Inedo.BuildMasterExtensions.Git.Clients
         {
         }
 
-        protected override string GitExePath
-        {
-            get
-            {
-                return this.Provider.Agent.CombinePath(this.Provider.Agent.GetBaseWorkingDirectory(), string.Format(@"ExtTemp\{0}\lilgit.exe", typeof(LilGitClient).Assembly.GetName().Name));
-            }
-        }
+        protected override string GitExePath => this.Provider.Agent.CombinePath(PathEx.GetDirectoryName(typeof(LilGitClient).Assembly.Location), "lilgit.exe");
 
         public override IEnumerable<string> EnumBranches(SourceRepository repo)
         {
