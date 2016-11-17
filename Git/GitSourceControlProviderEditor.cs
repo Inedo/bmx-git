@@ -9,7 +9,7 @@ namespace Inedo.BuildMasterExtensions.Git
     internal sealed class GitSourceControlProviderEditor : ProviderEditorBase
     {
         private CheckBox chkUseStandardGitClient;
-        private SourceControlFileFolderPicker txtGitExecutablePath;
+        private FileBrowserTextBox txtGitExecutablePath;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GitSourceControlProviderEditor"/> class.
@@ -46,10 +46,11 @@ namespace Inedo.BuildMasterExtensions.Git
                 Text = "Use Standard Git Client"
             };
 
-            this.txtGitExecutablePath = new SourceControlFileFolderPicker
+            this.txtGitExecutablePath = new FileBrowserTextBox
             {
                 ServerId = this.EditorContext.ServerId,
-                Required = false,
+                IncludeFiles = true,
+                Required = false
             };
 
             var ctlExePathField = new SlimFormField("Git executable path:", this.txtGitExecutablePath);

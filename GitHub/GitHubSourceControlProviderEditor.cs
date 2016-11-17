@@ -13,7 +13,7 @@ namespace Inedo.BuildMasterExtensions.GitHub
         private PasswordTextBox txtPassword;
         private ValidatingTextBox txtApiUrl;
         private CheckBox chkUseStandardGitClient;
-        private SourceControlFileFolderPicker txtGitExecutablePath;
+        private FileBrowserTextBox txtGitExecutablePath;
 
         public GitHubSourceControlProviderEditor()
         {
@@ -54,9 +54,10 @@ namespace Inedo.BuildMasterExtensions.GitHub
                 Text = "Use Standard Git Client"
             };
 
-            this.txtGitExecutablePath = new SourceControlFileFolderPicker
+            this.txtGitExecutablePath = new FileBrowserTextBox
             {
                 ServerId = this.EditorContext.ServerId,
+                IncludeFiles = true,
                 Required = false
             };
 
