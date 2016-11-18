@@ -3,8 +3,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Inedo.BuildMaster.Extensibility;
 
-[assembly: AssemblyTitle("GitHub")]
-[assembly: AssemblyDescription("Contains an issue tracking provider and a specialized source control provider for GitHub.")]
+[assembly: AssemblyTitle("GitHubLegacy")]
+[assembly: AssemblyDescription("Formerly the GitHub extension, only exists for legacy purposes in v5.6.0 installations or later.")]
 
 [assembly: ComVisible(false)]
 [assembly: AssemblyCompany("Inedo, LLC")]

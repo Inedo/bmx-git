@@ -3,8 +3,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Inedo.BuildMaster.Extensibility;
 
-[assembly: AssemblyTitle("Git")]
-[assembly: AssemblyDescription("Source Control integration for Git.")]
+[assembly: AssemblyTitle("GitLegacy")]
+[assembly: AssemblyDescription("Formerly the Git extension, only exists for legacy purposes in v5.6.0 installations or later.")]
 
 [assembly: ComVisible(false)]
 [assembly: AssemblyCompany("Inedo, LLC")]
