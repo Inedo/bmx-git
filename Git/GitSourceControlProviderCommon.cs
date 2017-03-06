@@ -252,6 +252,11 @@ namespace Inedo.BuildMasterExtensions.Git
             get { return this.owner.Agent; }
         }
 
+        IRemoteMethodExecuter IGitSourceControlProvider.RemoteMethodExecuter
+        {
+            get { return this.owner.RemoteMethodExecuter; }
+        }
+
         public Clients.ProcessResults ExecuteCommandLine(string fileName, string arguments, string workingDirectory)
         {
             return this.owner.ExecuteCommandLine(fileName, arguments, workingDirectory);

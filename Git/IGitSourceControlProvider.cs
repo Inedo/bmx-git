@@ -9,7 +9,8 @@ namespace Inedo.BuildMasterExtensions.Git
         SourceRepository[] Repositories { get; }
 
         IFileOperationsExecuter Agent { get; }
-        
+        IRemoteMethodExecuter RemoteMethodExecuter { get; }
+
         ProcessResults ExecuteCommandLine(string fileName, string arguments, string workingDirectory);
     }
 }

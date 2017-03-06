@@ -166,6 +166,11 @@ namespace Inedo.BuildMasterExtensions.Git
             get { return this.Agent.GetService<IFileOperationsExecuter>(); }
         }
 
+        IRemoteMethodExecuter IGitSourceControlProvider.RemoteMethodExecuter
+        {
+            get { return this.Agent.GetService<IRemoteMethodExecuter>(); }
+        }
+
         Clients.ProcessResults IGitSourceControlProvider.ExecuteCommandLine(string fileName, string arguments, string workingDirectory)
         {
             // This is not an ideal way to do this, but the idea here is to show an error if this is not used on a Windows client

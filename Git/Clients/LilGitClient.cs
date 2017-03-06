@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Inedo.Agents;
 using Inedo.BuildMaster.Extensibility.Providers.SourceControl;
 using Inedo.IO;
 
@@ -12,8 +13,24 @@ namespace Inedo.BuildMasterExtensions.Git.Clients
             : base(provider)
         {
         }
+        
+        protected override string GitExePath
+        {
+            get
+            {
+                var remoteExecuter = this.Provider.RemoteMethodExecuter;
+                if (remoteExecuter == null)
+                    throw new InvalidOperationException("Lilgit not supported on this agent.");
 
-        protected override string GitExePath => this.Provider.Agent.CombinePath(PathEx.GetDirectoryName(typeof(LilGitClient).Assembly.Location), "lilgit.exe");
+                string asmLocation = this.Provider.RemoteMethodExecuter.InvokeFunc(GetAsmLocation);
+                return this.Provider.Agent.CombinePath(asmLocation, "lilgit.exe");
+            }
+        }
+
+        private static string GetAsmLocation()
+        {
+            return PathEx.GetDirectoryName(typeof(LilGitClient).Assembly.Location);
+        }
 
         public override IEnumerable<string> EnumBranches(SourceRepository repo)
         {
