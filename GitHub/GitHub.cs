@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
 using Inedo.BuildMaster;
+using Newtonsoft.Json;
 
 namespace Inedo.BuildMasterExtensions.GitHub
 {
@@ -149,7 +150,7 @@ namespace Inedo.BuildMasterExtensions.GitHub
                 using (var requestStream = request.GetRequestStream())
                 using (var writer = new StreamWriter(requestStream, new UTF8Encoding(false)))
                 {
-                    Inedo.InedoLib.Util.JavaScript.WriteJson(writer, data);
+                    JsonSerializer.CreateDefault().Serialize(writer, data);
                 }
             }
 

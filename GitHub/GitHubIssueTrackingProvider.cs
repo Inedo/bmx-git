@@ -7,6 +7,8 @@ using Inedo.BuildMaster.Extensibility.IssueTrackerConnections;
 using Inedo.BuildMaster.Extensibility.Providers;
 using Inedo.BuildMaster.Web;
 using Inedo.Serialization;
+using Inedo.Extensibility.IssueSources;
+using Inedo.Web;
 
 namespace Inedo.BuildMasterExtensions.GitHub
 {
