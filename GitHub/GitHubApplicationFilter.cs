@@ -8,6 +8,7 @@ namespace Inedo.BuildMasterExtensions.GitHub
 {
     [Serializable]
     [CustomEditor(typeof(GitHubApplicationFilterEditor))]
+    [PersistFrom("Inedo.BuildMasterExtensions.GitHub.GitHubApplicationFilter,GitHub")]
     public sealed class GitHubApplicationFilter : IssueTrackerApplicationConfigurationBase
     {
         [Persistent]
