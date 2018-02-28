@@ -13,6 +13,12 @@ namespace Inedo.BuildMasterExtensions.GitHub
 {
     internal sealed class GitHub
     {
+        static GitHub()
+        {
+            // Ensure TLS 1.2 is supported. See https://github.com/blog/2498-weak-cryptographic-standards-removal-notice
+            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol | SecurityProtocolType.Tls12;
+        }
+
         public const string GitHubComUrl = "https://api.github.com";
 
         private string apiBaseUrl;
