@@ -175,7 +175,7 @@ namespace Inedo.BuildMasterExtensions.Git
         {
             // This is not an ideal way to do this, but the idea here is to show an error if this is not used on a Windows client
             // Currently, only the Windows agent is an IRemoteCommandExecuter, so this will work
-            if (!this.UseStandardGitClient && !(this.Agent is IRemoteMethodExecuter))
+            if (!this.UseStandardGitClient && this.Agent.TryGetService<IRemoteMethodExecuter>() == null)
                 throw new NotAvailableException("The integrated Git client cannot be used on Linux. Enable the Use Standard Git Client option of the Git Provider.");
 
             var results = this.ExecuteCommandLine(fileName, arguments, workingDirectory);
