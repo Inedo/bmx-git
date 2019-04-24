@@ -18,6 +18,7 @@ namespace Inedo.BuildMasterExtensions.GitHub
     [DisplayName("GitHub")]
     [Description("Provides issue tracking integration for GitHub.")]
     [CustomEditor(typeof(GitHubIssueTrackingProviderEditor))]
+    [PersistFrom("Inedo.BuildMasterExtensions.GitHub.GitHubIssueTrackingProvider,GitHub")]
     public sealed partial class GitHubIssueTrackingProvider : IssueTrackerConnectionBase, IReleaseManager, IIssueCloser, IIssueCommenter
     {
         private Lazy<GitHub> github;

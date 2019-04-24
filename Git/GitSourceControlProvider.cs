@@ -18,6 +18,7 @@ namespace Inedo.BuildMasterExtensions.Git
     [DisplayName("Git")]
     [Description("Supports most versions of Git; requires Git to be installed on the server for use with an SSH Agent.")]
     [CustomEditor(typeof(GitSourceControlProviderEditor))]
+    [PersistFrom("Inedo.BuildMasterExtensions.Git.GitSourceControlProvider,Git")]
     public sealed partial class GitSourceControlProvider : DistributedSourceControlProviderBase, IClientCommandProvider, IGitSourceControlProvider
     {
         private GitSourceControlProviderCommon wrappedProvider;

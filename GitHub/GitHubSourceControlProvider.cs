@@ -19,6 +19,7 @@ namespace Inedo.BuildMasterExtensions.GitHub
     [DisplayName("GitHub")]
     [Description("Git integration optimized for use with GitHub.com or GitHub Enterprise; requires Git to be installed on the server for use with an SSH Agent.")]
     [CustomEditor(typeof(GitHubSourceControlProviderEditor))]
+    [PersistFrom("Inedo.BuildMasterExtensions.GitHub.GitHubSourceControlProvider,GitHub")]
     public sealed class GitHubSourceControlProvider : DistributedSourceControlProviderBase, IGitSourceControlProvider
     {
         private GitSourceControlProviderCommon wrappedProvider;
